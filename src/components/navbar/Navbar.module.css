@@ -1,0 +1,36 @@
+.navbar {
+  background-color: rgba(235, 15, 15, 0.705);
+  height: 80px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  background: linear-gradient(
+    90deg,
+    rgb(0, 255, 0) 0%,
+    rgba(9, 9, 121, 1) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.navlink,
+.navlink:visited {
+  font-size: 25px;
+  margin: 0 150px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.activeNav {
+  font-size: 35px;
+  font-weight: 600;
+}
