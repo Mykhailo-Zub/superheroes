@@ -17,6 +17,15 @@
   font-weight: 600;
 }
 
+.editBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 25px;
+  color: #6b0202;
+  font-weight: 600;
+}
+
 .header {
   margin-top: 30px;
 }

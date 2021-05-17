@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import getAllHeroes from "../../redux/getAllAction";
-import getHeroInfo from "../../redux/getHeroAction";
+import getCurrentHeroId from "../../redux/getCurrentHeroIdAction";
 import ShowOne from "../showOne/ShowOne.jsx";
 import style from "./ShowAll.module.css";
 import { mainUrl } from "../../URL";
@@ -12,8 +12,7 @@ class ShowAll extends Component {
   }
 
   showAbout(id) {
-    console.log(id);
-    this.props.getHeroInfo(mainUrl + "/" + id);
+    this.props.getCurrentHeroId(id);
   }
 
   render() {
@@ -32,7 +31,7 @@ class ShowAll extends Component {
                   onClick={this.showAbout.bind(this, el._id)}
                 >
                   <ShowOne
-                    key={el.id}
+                    key={el._id}
                     image={el.images[0]}
                     nickname={el.nickname}
                     real_name={el.real_name}
@@ -56,7 +55,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     getAllHeroes: (url) => dispatch(getAllHeroes(url)),
-    getHeroInfo: (url, id) => dispatch(getHeroInfo(url, id)),
+    getCurrentHeroId: (id) => dispatch(getCurrentHeroId(id)),
   };
 };
 

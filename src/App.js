@@ -9,6 +9,7 @@ import ShowAll from "./components/showAll/ShowAll.jsx";
 import Navbar from "./components/navbar/Navbar";
 import AddNew from "./components/AddNew/AddNew";
 import About from "./components/about/About";
+import ChangeInfo from "./components/ChangeInfo/ChangeInfo";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/showall" component={ShowAll} />
           <Route path="/addnew" component={AddNew} />
           <Route path="/about" component={About} />
+          <Route path="/changeinfo" component={ChangeInfo} />
           <Route path="" exact render={() => <Redirect to="/showall" />} />
         </Switch>
       </div>

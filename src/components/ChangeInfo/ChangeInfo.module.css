@@ -1,0 +1,86 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  color: #6b0202;
+  padding-bottom: 30px;
+}
+
+.header {
+  margin-top: 30px;
+}
+
+.photosContainer {
+  max-width: 800px;
+  width: 80%;
+}
+
+.input {
+  border: 2px solid #920000;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  max-width: 800px;
+  width: 80%;
+  margin-top: 30px;
+  color: #920000;
+  font-size: 20px;
+}
+
+.photoInput {
+  width: 100%;
+}
+
+.textarea {
+  height: 100px;
+}
+
+.input::placeholder {
+  color: #920000;
+  opacity: 0.8;
+}
+
+.submitButton {
+  border: 2px solid #920000;
+  background-color: #920000;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  max-width: 800px;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.addMoreButton {
+  border: 2px solid #920000;
+  background-color: #ffffff;
+  color: #920000;
+  font-size: 20px;
+  font-weight: 900;
+  border-radius: 5px;
+  height: 50px;
+  max-width: 800px;
+  width: 80%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton:hover {
+  transition: 0.5s;
+  background-color: #fff;
+  color: #920000;
+}
+
+.addMoreButton:hover {
+  transition: 0.5s;
+  background-color: #920000;
+  color: #fff;
+}
