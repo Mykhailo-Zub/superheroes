@@ -1,23 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import style from "./ChangeInfo.module.css";
-import getAllHeroes from "../../redux/getAllAction";
 import { mainUrl } from "../../URL";
 import addNew from "../../redux/addNewAction";
-import postHero from "../../redux/postHeroAction";
+import changeHeroInfo from "../../redux/changeHeroAction";
 
-class AddNew extends Component {
-  state = {
-    nickname: "",
-    real_name: "",
-    origin_description: "",
-    superpowers: "",
-    catch_phrase: "",
-    images: [],
-  };
+class ChangeInfo extends Component {
+  state = {};
 
   componentDidMount() {
-    this.props.getAllHeroes(mainUrl);
+    const {
+      nickname,
+      real_name,
+      origin_description,
+      superpowers,
+      catch_phrase,
+      images,
+    } = this.props.hero;
+    this.setState({
+      nickname: nickname,
+      real_name: real_name,
+      origin_description: origin_description,
+      superpowers: superpowers,
+      catch_phrase: catch_phrase,
+      images: images,
+    });
   }
 
   handleNicknameChange = (e) => {
@@ -56,7 +63,7 @@ class AddNew extends Component {
     });
   };
 
-  addSuperhero = () => {
+  changeHeroInfo = () => {
     if (
       this.state.nickname &&
       this.state.real_name &&
@@ -66,22 +73,32 @@ class AddNew extends Component {
       this.state.images[0]
     ) {
       this.props.addNew(this.state);
-      this.props.postHero(mainUrl);
-      this.setState({
-        nickname: "",
-        real_name: "",
-        origin_description: "",
-        superpowers: "",
-        catch_phrase: "",
-        images: [],
-      });
+      this.props.changeHeroInfo(mainUrl);
+      this.props.history.push("/changesuccess");
+      // this.setState({
+      //   nickname: "",
+      //   real_name: "",
+      //   origin_description: "",
+      //   superpowers: "",
+      //   catch_phrase: "",
+      //   images: [],
+      // });
     }
   };
 
   render() {
     return (
       <div className={style.wrapper}>
-        <h1 className={style.header}>Add new Superhero</h1>
+        <button
+          className={style.backBtn}
+          type="button"
+          onClick={() => this.props.history.goBack()}
+        >
+          &lt; BACK
+        </button>
+        <h1 className={style.header}>
+          Change info about {this.state.nickname}
+        </h1>
         <input
           className={style.input}
           type="text"
@@ -127,9 +144,9 @@ class AddNew extends Component {
         <button
           type="button"
           className={style.submitButton}
-          onClick={this.addSuperhero}
+          onClick={this.changeHeroInfo}
         >
-          Add new Superhero
+          Change hero info
         </button>
       </div>
     );
@@ -138,16 +155,15 @@ class AddNew extends Component {
 
 const mapState = (state) => {
   return {
-    heroes: state.getAllReducer,
+    hero: state.getHeroReducer,
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    getAllHeroes: (url) => dispatch(getAllHeroes(url)),
     addNew: (data) => dispatch(addNew(data)),
-    postHero: (url) => dispatch(postHero(url)),
+    changeHeroInfo: (url) => dispatch(changeHeroInfo(url)),
   };
 };
 
-export default connect(mapState, mapDispatch)(AddNew);
+export default connect(mapState, mapDispatch)(ChangeInfo);

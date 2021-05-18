@@ -11,7 +11,7 @@ class About extends Component {
     images: [],
   };
   componentDidMount() {
-    // this.props.getHeroInfo(mainUrl + "/" + this.props.id);
+    this.props.getHeroInfo(mainUrl + "/" + this.props.id);
     axios.get(mainUrl + "/" + this.props.id).then(({ data }) =>
       this.setState({
         nickname: data.nickname,
