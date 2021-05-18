@@ -11,7 +11,6 @@ class About extends Component {
     images: [],
   };
   componentDidMount() {
-    console.log(this.props.id);
     // this.props.getHeroInfo(mainUrl + "/" + this.props.id);
     axios.get(mainUrl + "/" + this.props.id).then(({ data }) =>
       this.setState({
@@ -44,19 +43,32 @@ class About extends Component {
 
         <h1 className={style.header}>All about "{this.state.nickname}"</h1>
         <div className={style.about}>
-          <div className={style.name}>Real name: {this.state.real_name}</div>
+          <div className={style.name}>
+            <span className={style.category}>Real name: </span>
+            {this.state.real_name}
+          </div>
           <div className={style.superpowers}>
-            Superpowers: {this.state.superpowers}
+            <span className={style.category}>Superpowers: </span>
+            {this.state.superpowers}
           </div>
           <div className={style.description}>
-            About: {this.state.origin_description}
+            <span className={style.category}>About: </span>
+            {this.state.origin_description}
           </div>
           <div className={style.catch_phrase}>
-            Catch phrase: {this.state.catch_phrase}
+            <span className={style.category}>Catch phrase: </span>
+            {this.state.catch_phrase}
           </div>
           <div className={style.images}>
             {this.state.images.map((el, index) => {
-              return <img src={el} alt={this.state.nickname} key={index} />;
+              return (
+                <img
+                  src={el}
+                  className={style.image}
+                  alt={this.state.nickname}
+                  key={index}
+                />
+              );
             })}
           </div>
         </div>

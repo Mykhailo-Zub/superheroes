@@ -3,29 +3,69 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-top: 10px;
-  color: #6b0202;
+  color: #1f0000;
   position: relative;
+  background-color: rgba(255, 255, 255, 0.342);
+  padding: 10px 10px;
+  border-radius: 10px;
 }
 
 .backBtn {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
   font-size: 25px;
-  color: #6b0202;
+  color: #1f0000;
   font-weight: 600;
 }
 
 .editBtn {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   font-size: 25px;
-  color: #6b0202;
+  color: #1f0000;
   font-weight: 600;
 }
 
 .header {
   margin-top: 30px;
+}
+
+.about {
+  color: #ffebcd;
+}
+
+.name,
+.superpowers,
+.description,
+.catch_phrase {
+  background-color: rgb(235, 15, 15);
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 15px;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.category {
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.image {
+  margin-top: 15px;
+  max-width: 100%;
 }
