@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import style from "./ChangeSuccess.module.css";
+import style from "./RemoveSuccess.module.css";
 
-const ChangeSuccess = (props) => {
+const RemoveSuccess = (props) => {
   return (
     <div className={style.wrapper}>
-      <h1 className={style.header}>Information changed successfully!</h1>
+      <h1 className={style.header}>Superhero removed successfully!</h1>
       <button
         className={style.backBtn}
         type="button"
@@ -17,4 +17,4 @@ const ChangeSuccess = (props) => {
   );
 };
 
-export default connect(null, null)(ChangeSuccess);
+export default connect(null, null)(RemoveSuccess);

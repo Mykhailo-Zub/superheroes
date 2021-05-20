@@ -4,6 +4,7 @@ import style from "./ChangeInfo.module.css";
 import { mainUrl } from "../../URL";
 import addNew from "../../redux/addNewAction";
 import changeHeroInfo from "../../redux/changeHeroAction";
+import removeHero from "../../redux/removeHeroAction";
 
 class ChangeInfo extends Component {
   state = {};
@@ -75,14 +76,13 @@ class ChangeInfo extends Component {
       this.props.addNew(this.state);
       this.props.changeHeroInfo(mainUrl);
       this.props.history.push("/changesuccess");
-      // this.setState({
-      //   nickname: "",
-      //   real_name: "",
-      //   origin_description: "",
-      //   superpowers: "",
-      //   catch_phrase: "",
-      //   images: [],
-      // });
+    }
+  };
+
+  removeHero = () => {
+    if (this.props.hero) {
+      this.props.removeHero(mainUrl);
+      this.props.history.push("/removesuccess");
     }
   };
 
@@ -148,6 +148,13 @@ class ChangeInfo extends Component {
         >
           Change hero info
         </button>
+        <button
+          type="button"
+          className={style.submitButton}
+          onClick={this.removeHero}
+        >
+          Remove hero from database
+        </button>
       </div>
     );
   }
@@ -163,6 +170,7 @@ const mapDispatch = (dispatch) => {
   return {
     addNew: (data) => dispatch(addNew(data)),
     changeHeroInfo: (url) => dispatch(changeHeroInfo(url)),
+    removeHero: (url) => dispatch(removeHero(url)),
   };
 };
 

@@ -75,6 +75,7 @@ class AddNew extends Component {
         catch_phrase: "",
         images: [],
       });
+      this.props.history.push("/addsuccess");
     }
   };
 
